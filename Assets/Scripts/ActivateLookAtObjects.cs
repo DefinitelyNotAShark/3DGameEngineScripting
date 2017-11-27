@@ -24,9 +24,10 @@ public class ActivateLookAtObjects : MonoBehaviour {
 
             IActivatable lookedAtObject = raycastHit.transform.GetComponent<IActivatable>();
 
-            if(lookedAtObject != null)
+            if(lookedAtObject != null && Input.GetButtonDown("Activate"))
             {
                 Debug.Log("this is an iactivatable");
+                lookedAtObject.DoActivate();
             }
         }
         
