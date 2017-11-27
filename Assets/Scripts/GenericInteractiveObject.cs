@@ -4,17 +4,9 @@ using UnityEngine;
 
 public class GenericInteractiveObject : MonoBehaviour, IActivatable
 {
-
-    public void DoActivate();
-
-
-    // Use this for initialization
-    void Start() {
-
+    public void DoActivate()
+    {
+        Debug.Log(transform.name + " was activated!");
     }
 
-    // Update is called once per frame
-    void Update() {
-
-    }
 }
