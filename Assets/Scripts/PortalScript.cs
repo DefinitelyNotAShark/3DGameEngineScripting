@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Threading;
 
 public class PortalScript : MonoBehaviour, IActivatable{
     [SerializeField]
@@ -22,18 +23,21 @@ public class PortalScript : MonoBehaviour, IActivatable{
     {
         if (StarScript.StarCount == 4)
         {
+            if (PortalLight.lightOn == true)
+            {
+                UsePortal();
+            }
+            else
             PortalLight.lightOn = true;
-            NameText = "It's On!";
-            UsePortal();
-
+            NameText = "It's on! Enter?";
         }
         else
         {
-            NameText = StarScript.StarCount + "/4 Crystals. Press E to Try Again.";
+            NameText = StarScript.StarCount + "/4 Crystals.";
         }
     }
 
-    void UsePortal()
+    public void UsePortal()
     {
         SceneManager.LoadScene("Scene2");
     }

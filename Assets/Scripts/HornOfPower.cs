@@ -1,16 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class HornOfPower : MonoBehaviour {
+public class HornOfPower : MonoBehaviour, IActivatable {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    [SerializeField]
+    private string nameText;
+    public string NameText { get { return nameText; } }
+
+    public void DoActivate()
+    {
+        SceneManager.LoadScene("GameOver");
+    }
 }
